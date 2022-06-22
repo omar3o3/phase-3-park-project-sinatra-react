@@ -22,11 +22,11 @@ class ApplicationController < Sinatra::Base
       )
       Friend.create(
         group_of_names: params[:inputState],
-        your_event_id: YourEvent.find_by(event_id: params[:event][:event_type_id]).id
+        your_event_id: YourEvent.find_by(event_id: params[:event][:event_id]).id
       )
     else
       puts 'i already exist'
     end
-    
+
   end
 end
