@@ -27,6 +27,10 @@ class ApplicationController < Sinatra::Base
     else
       puts 'i already exist'
     end
-
   end
+
+  get "/your-events" do
+    Borough.all.to_json(include: [{your_events: {include: :friend}}, :event_types])
+  end
+
 end
