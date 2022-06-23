@@ -30,7 +30,19 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/your-events" do
-    Borough.all.to_json(include: [{your_events: {include: :friend}}, :event_types])
+    YourEvent.all.to_json
+  end
+
+  get "/boroughs" do
+    Borough.all.to_json
+  end
+
+  get "/event_types" do
+    EventType.all.to_json
+  end
+
+  get "friends" do
+    Friend.all.to_json
   end
 
 end
