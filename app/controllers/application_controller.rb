@@ -45,4 +45,8 @@ class ApplicationController < Sinatra::Base
     Friend.all.to_json
   end
 
+  patch "/edit-friends/:id" do
+    puts params
+  end
+
 end
