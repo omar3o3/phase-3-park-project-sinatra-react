@@ -41,7 +41,7 @@ class ApplicationController < Sinatra::Base
     EventType.all.to_json
   end
 
-  get "friends" do
+  get "/friends" do
     Friend.all.to_json
   end
 
