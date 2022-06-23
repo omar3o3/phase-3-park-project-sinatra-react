@@ -47,7 +47,14 @@ class ApplicationController < Sinatra::Base
 
   patch "/edit-friends/:id" do
     puts params[:text]
-    params[:text].to_json
+    puts params[:friend_id]
+    theFriend = Friend.find(params[:friend_id])
+    theFriend.update(
+      group_of_names: params[:text]
+    )
+    puts theFriend
+    # params[:text].to_json
+    theFriend.to_json
   end
 
 end
