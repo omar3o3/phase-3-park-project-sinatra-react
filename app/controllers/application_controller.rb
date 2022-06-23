@@ -46,8 +46,8 @@ class ApplicationController < Sinatra::Base
   end
 
   patch "/edit-friends/:id" do
-    puts params[:text]
-    puts params[:friend_id]
+    # puts params[:text]
+    # puts params[:friend_id]
     theFriend = Friend.find(params[:friend_id])
     theFriend.update(
       group_of_names: params[:text]
@@ -57,4 +57,10 @@ class ApplicationController < Sinatra::Base
     theFriend.to_json
   end
 
+  delete "/your-events/delete/:id" do
+    theYourEvent = YourEvent.find(params[:id])
+    theFriend = theYourEvent.friend
+    theFriend.destroy
+    theYourEvent.destroy
+  end
 end
