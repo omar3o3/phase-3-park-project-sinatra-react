@@ -62,6 +62,5 @@ class ApplicationController < Sinatra::Base
     theFriend = theYourEvent.friend
     theFriend.destroy
     theYourEvent.destroy
-    YourEvent.to_json
   end
 end
